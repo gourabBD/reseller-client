@@ -4,7 +4,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const DashboardCategories = () => {
   const { user } = useContext(AuthContext);
-  const [findingUser, setFindingUser] = useState(null);
+  const [findingUser, setFindingUser] = useState("");
   useEffect(() => {
     fetch("https://resale-site-server.vercel.app/users")
       .then((res) => res.json())
@@ -18,7 +18,7 @@ const DashboardCategories = () => {
   return (
     <div>
       <ul className="menu menu-vertical bg-gray-800  rounded-box">
-        {(user?.uid && findingUser?.category === "Buyer") || null ? (
+        {(user?.uid && findingUser?.category === "Buyer") || "" ? (
           <div>
             <li>
               <Link to={"/dashboard/myorders"}>My Orders</Link>
