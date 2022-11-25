@@ -112,6 +112,7 @@ form.reset()
               /> : <h1 className='text-red-600 text-xl text-center'>Log In first to buy anything.</h1>}
             </form>
           </div>
+          
         </div>
       </>
     );
