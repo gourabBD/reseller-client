@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const SellerProductCard = ({product}) => {
+  const {user}=useContext(AuthContext)
     const {img,description,category,prodName,_id,loc,postTime,yearsUse,name,email,phone,orgPrice,resalePrice,verifiedSeller}=product;
 
     const handleDelete=()=>{
@@ -24,6 +26,50 @@ const SellerProductCard = ({product}) => {
               }
             });
 
+
+    }
+
+    const handleAdvertise=(event)=>{
+      event.preventDefault();
+      const form = event.target;
+      
+      const addProd = {
+        img,
+        description,
+        category,
+        prodName,
+        loc,
+        postTime,
+        yearsUse,
+        name:user?.displayName,
+        email:user?.email,
+        phone,
+        orgPrice,
+        resalePrice,
+        verifiedSeller
+
+    };
+      fetch("http://localhost:5000/advertise", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addProd),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          
+  
+          if (data.acknowledged) {
+            
+            toast.success("Advertising Confirmed!");
+            form.reset()
+            
+          } else {
+            toast.error(data.message);
+          }
+        });
+
     }
 
     return (
@@ -39,7 +85,10 @@ const SellerProductCard = ({product}) => {
     <p>Resale Price: {resalePrice} Tk.</p>
     <p>Original Price: {orgPrice} Tk.</p>
     <p>Used for: {yearsUse} Years</p>
-    <button onClick={handleDelete} className='btn btn-primary'>Delete</button>
+    <button onClick={handleAdvertise} className='btn btn-primary'>Advertise</button>
+    <button onClick={handleDelete} className='btn btn-error'>Delete</button>
+   
+    
      
     
    

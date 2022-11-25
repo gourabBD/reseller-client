@@ -23,7 +23,7 @@ const SellerAddProductCard = () => {
         const orgPrice = form.orgPrice.value;
         const resalePrice = form.resalePrice.value;
         const verifiedSeller = false
-        console.log(category)
+        
         const addProd = {
             img,
             description,
