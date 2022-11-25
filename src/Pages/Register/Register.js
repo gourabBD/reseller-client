@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loadings from '../../components/Spinner/Loadings';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
@@ -12,7 +13,7 @@ const Register = () => {
         formState: { errors },
       } = useForm();
       const {googleSignIn}=useContext(AuthContext)
-      const { createUser, updateUser } = useContext(AuthContext);
+      const { createUser, updateUser,loading } = useContext(AuthContext);
       const [signUpError, setSignUPError] = useState("");
       const [createdUserEmail, setCreatedUserEmail] = useState("");
     //   const [token] = useToken(createdUserEmail);
@@ -68,6 +69,7 @@ const Register = () => {
         googleSignIn(googleProvider)
         .then(result=>{
           const user=result.user;
+         
           navigate(from, { replace: true });
         })
         .catch(error=>console.error(error))
@@ -139,6 +141,7 @@ const Register = () => {
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
               </div>
+              {/* select options */}
               <input
                 className="btn btn-primary w-full mt-4"
                 value="Sign Up"

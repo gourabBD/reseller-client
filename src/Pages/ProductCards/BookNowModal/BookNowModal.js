@@ -1,23 +1,118 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
+const BookNowModal = ({prodName,id,resalePrice}) => {
+    const {user}=useContext(AuthContext)
+    const {modalError,setModalError}=useState()
 
-const BookNowModal = () => {
+
+    
+ const handleModal=(event)=>{
+event.preventDefault()
+const form=event.target;
+
+const customer=form.customer.value;
+const customerEmail=form.customerEmail.value;
+const custphone=form.custphone.value;
+const recLocation=form.recLocation.value;
+
+const purchaseInfo={
+  prodId: id,
+  prodName,
+  customer,
+  customerEmail,
+  custphone,
+  recLocation
+}
+fetch("http://localhost:5000/bookedProducts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchaseInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        
+
+        if (data.acknowledged) {
+          
+          toast.success("Booking Confirmed!");
+          
+        } else {
+          toast.error(data.message);
+        }
+      });
+
+form.reset()
+
+}
     return (
-        <div>
-            {/* The button to open modal */}
-<label htmlFor="book-now" className="btn">open modal</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="book-now" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    <div className="modal-action">
-      <label htmlFor="book-now" className="btn">Yay!</label>
-    </div>
-  </div>
-</div>
+        <>
+        <input type="checkbox" id={id} className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box relative">
+            <label 
+              htmlFor={id}
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            <h3 className="text-lg font-bold">{prodName}</h3>
+            <form
+              onSubmit={handleModal}
+              className="grid grid-cols-1 gap-3 mt-10"
+            >
+              <input
+                type="text"
+                name='resalePrice'
+                disabled
+                value={resalePrice}
+                className="input w-full input-bordered "
+              />
+              
+              <input
+                name="customer"
+                type="text"
+                defaultValue={user?.displayName}
+                disabled
+                placeholder="Your Name"
+                className="input w-full input-bordered"
+              />
+              <input
+                name="customerEmail"
+                type="email"
+                defaultValue={user?.email}
+                disabled
+                placeholder="Email Address"
+                className="input w-full input-bordered"
+              />
+              <input
+                name="custphone"
+                type="text"
+                placeholder="Buyer's Phone Number"
+                className="input w-full input-bordered"
+                required
+              />
+              <br />
+              <input
+                name="recLocation"
+                type="text"
+                placeholder="Location of recieving product"
+                className="input w-full input-bordered"
+                required
+              />
+              <br />
+              <input
+                className="btn btn-accent w-full"
+                type="submit"
+                value="Purchase"
+              />
+            </form>
+          </div>
         </div>
+      </>
     );
 };
 
