@@ -26,8 +26,9 @@ const Register = () => {
     //   }
     
       const handleSignUp = (data) => {
+        
         setSignUPError("");
-        createUser(data.email, data.password)
+        createUser(data.email, data.password,data.category)
           .then((result) => {
             const user = result.user;
             console.log(user);
@@ -37,7 +38,7 @@ const Register = () => {
             };
             updateUser(userInfo)
               .then(() => {
-                saveUser(data.name, data.email);
+                saveUser(data.name, data.email,data.category);
               })
               .catch((err) => console.log(err));
               navigate(from, { replace: true });
@@ -49,9 +50,9 @@ const Register = () => {
           });
       };
     
-      const saveUser = (name, email) => {
-        const user = { name, email };
-        fetch("https://doctors-portal-server-tau-lilac.vercel.app/users", {
+      const saveUser = (name, email,category) => {
+        const user = { name, email,category };
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -142,6 +143,13 @@ const Register = () => {
                 )}
               </div>
               {/* select options */}
+              <div className='my-2'>
+              <select className='w-full' {...register("category", { required: true })}>
+        <option value="Buyer">Buyer</option>
+        <option value="Seller">Seller</option>
+        <option value="Admin">Admin</option>
+      </select>
+              </div>
               <input
                 className="btn btn-primary w-full mt-4"
                 value="Sign Up"

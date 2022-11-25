@@ -12,7 +12,7 @@ const Categories = ({product}) => {
    
     return (
         <div className='my-5'>
-            <ul className="menu menu-horizontal bg-gray-800  rounded-box">
+            <ul className="menu menu-vertical bg-gray-800  rounded-box">
         {
             categories?.map(cat=><li cat={cat} key={cat?._id}><Link  to={`/products/${cat?.category}`} cat={cat}>{cat?.category}</Link></li>)
         }

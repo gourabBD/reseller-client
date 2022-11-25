@@ -38,7 +38,7 @@ fetch("http://localhost:5000/bookedProducts", {
 
         if (data.acknowledged) {
           
-          toast.success("Booking Confirmed!");
+          toast.success("Purchase Confirmed!");
           
         } else {
           toast.error(data.message);
@@ -99,13 +99,13 @@ form.reset()
               <input
                 name="recLocation"
                 type="text"
-                placeholder="Location of recieving product"
+                placeholder="Location of recieving the product"
                 className="input w-full input-bordered"
                 required
               />
               <br />
               <input
-                className="btn btn-accent w-full"
+                className="btn btn-primary w-full"
                 type="submit"
                 value="Purchase"
               />
