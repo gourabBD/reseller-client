@@ -12,6 +12,7 @@ const AdvertisementCard = ({advertise}) => {
   </div>
   <figure><img className='h-36 w-full' src={img} alt="Shoes" /></figure>
 </div>
+
         </div>
     );
 };
