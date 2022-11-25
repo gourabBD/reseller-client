@@ -16,6 +16,7 @@ const Advertisement = () => {
                 advertise?.map(ad=><AdvertisementCard key={ad?._id} advertise={ad}></AdvertisementCard>)
               }
             </div>
+            
         </div>
     );
 };
