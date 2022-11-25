@@ -14,7 +14,7 @@ const AdvertisementCard = ({advertise}) => {
 </div>
 
 
-        </div>
+     </div>
     );
 };
 
