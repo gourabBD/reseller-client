@@ -28,7 +28,7 @@ const DashboardCategories = () => {
             }
            {
             user?.uid && findingUser?.category==='Seller'  ? <div>
-            <li ><Link  to={'/dashboard/myorders'} >Add A Product</Link></li>
+            <li ><Link  to={'/dashboard/addproduct'} >Add A Product</Link></li>
             <li ><Link  to={'/dashboard/wishlist'} >My Products</Link></li>
 
             </div> :<></>

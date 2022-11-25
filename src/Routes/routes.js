@@ -13,6 +13,7 @@ import Login from "../Pages/Login/Login";
 import NotFoundError from "../Pages/NotFoundError/NotFoundError";
 
 import Register from '../Pages/Register/Register';
+import SellerAddProduct from "../Pages/SellerAddProducts/SellerAddProduct";
 import CategoryProducts from './../Pages/CategoryProducts/CategoryProducts';
 import Dashboard from './../Pages/Dashboard/Dashboard';
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/wishlist",
         element: <PrivateRoute><MyWishList></MyWishList></PrivateRoute>,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: <PrivateRoute><SellerAddProduct></SellerAddProduct></PrivateRoute>,
       },
 
     ]

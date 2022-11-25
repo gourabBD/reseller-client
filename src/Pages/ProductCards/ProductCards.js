@@ -9,7 +9,7 @@ import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
 
 const ProductCards = ({product,products}) => {
     const {user}=useContext(AuthContext)
-    const {prodName,_id,description,loc,postTime,yearsUse,name,phone,orgPrice,resalePrice,verifiedSeller}=product
+    const {prodName,_id,description,loc,postTime,yearsUse,name,phone,orgPrice,resalePrice,verifiedSeller,img}=product
     const {catProduct,setCatProduct}=useState([])
 
     // useEffect(()=>{
@@ -45,7 +45,7 @@ const ProductCards = ({product,products}) => {
     <p>Original Price: {orgPrice} Tk.</p>
     <p>Used for: {yearsUse} Years</p>
      <label  key={_id} htmlFor={_id} className="btn btn-primary">Book Now </label>
-    <BookNowModal   resalePrice={resalePrice} id={_id} prodName={prodName} 
+    <BookNowModal img={img}  resalePrice={resalePrice} id={_id} prodName={prodName} 
      ></BookNowModal>
    
    

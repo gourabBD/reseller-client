@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
-const BookNowModal = ({prodName,id,resalePrice}) => {
+const BookNowModal = ({prodName,id,resalePrice,img}) => {
     const {user}=useContext(AuthContext)
     const {modalError,setModalError}=useState()
 
@@ -18,6 +18,7 @@ const custphone=form.custphone.value;
 const recLocation=form.recLocation.value;
 
 const purchaseInfo={
+  img:img,
   prodId: id,
   prodName,
   customer,

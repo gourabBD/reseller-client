@@ -1,5 +1,6 @@
 import React,{useState,useContext,useEffect} from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import MyordersCard from './MyoredersCard/MyordersCard';
 
 const Myorders = () => {
     const [orders,setOrders]=useState([])
@@ -8,10 +9,14 @@ const Myorders = () => {
         fetch(`http://localhost:5000/bookedProducts/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setOrders(data))
-    },[])
+    },[orders])
     return (
         <div>
-            <h1>My orders  {orders.length}</h1>
+            <h1 className='text-3xl'>My orders :</h1>
+            {
+                orders?.map(order=><MyordersCard key={order?._id}
+                order={order}></MyordersCard>)
+            }
         </div>
     );
 };
