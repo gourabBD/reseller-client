@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: `/products/:category`,
         element: <CategoryProducts></CategoryProducts>,
-        loader:({params})=>fetch(`http://localhost:5000/products/${params.category}`),
+        loader:({params})=>fetch(`https://resale-site-server.vercel.app/products/${params.category}`),
       },
 
       {
