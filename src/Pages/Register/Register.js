@@ -147,7 +147,7 @@ const Register = () => {
               <select className='w-full' {...register("category", { required: true })}>
         <option value="Buyer">Buyer</option>
         <option value="Seller">Seller</option>
-        <option value="Admin">Admin</option>
+        
       </select>
               </div>
               <input

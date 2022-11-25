@@ -105,11 +105,11 @@ form.reset()
                 required
               />
               <br />
-              <input
+              {user?.email ? <input
                 className="btn btn-primary w-full"
                 type="submit"
                 value="Purchase"
-              />
+              /> : <h1 className='text-red-600 text-xl text-center'>Log In first to buy anything.</h1>}
             </form>
           </div>
         </div>

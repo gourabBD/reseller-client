@@ -4,7 +4,7 @@ import SellerAddProductCard from './SellerAddProductCard';
 const SellerAddProduct = () => {
     return (
         <div>
-            <h1>this add product</h1>
+            <h1 className='text-3xl'> Add Selling product:</h1>
             <SellerAddProductCard></SellerAddProductCard>
         </div>
     );

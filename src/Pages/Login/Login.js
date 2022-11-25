@@ -23,7 +23,7 @@ const Login = () => {
     // }
 
     const handleLogin = data => {
-        console.log(data);
+        
         setLoginError('');
         signIn(data.email, data.password)
             .then(result => {

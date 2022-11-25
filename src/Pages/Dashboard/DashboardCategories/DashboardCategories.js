@@ -29,14 +29,14 @@ const DashboardCategories = () => {
            {
             user?.uid && findingUser?.category==='Seller'  ? <div>
             <li ><Link  to={'/dashboard/addproduct'} >Add A Product</Link></li>
-            <li ><Link  to={'/dashboard/wishlist'} >My Products</Link></li>
+            <li ><Link  to={'/dashboard/mysellingproducts'} >My Products</Link></li>
 
             </div> :<></>
             }
            {
             user?.uid && findingUser?.category==='Admin'  ? <div>
-            <li ><Link  to={'/dashboard/myorders'} >All Sellers</Link></li>
-            <li ><Link  to={'/dashboard/wishlist'} >All Buyers</Link></li>
+            <li ><Link  to={'/dashboard/allsellers'} >All Sellers</Link></li>
+            <li ><Link  to={'/dashboard/allbuyers'} >All Buyers</Link></li>
 
             </div> :<></>
             }

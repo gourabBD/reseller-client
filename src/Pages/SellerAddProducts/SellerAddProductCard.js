@@ -33,6 +33,7 @@ const SellerAddProductCard = () => {
             postTime,
             yearsUse,
             name:user?.displayName,
+            email:user?.email,
             phone,
             orgPrice,
             resalePrice,
@@ -52,7 +53,7 @@ const SellerAddProductCard = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            
     
             if (data.acknowledged) {
               
@@ -119,7 +120,7 @@ const SellerAddProductCard = () => {
               name="name"
               type="text"
               defaultValue={user?.displayName}
-             
+             disabled
               placeholder="Your Name"
               className="input w-full input-bordered"
             />
