@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const SellerAddProductCard = () => {
+  const navigate=useNavigate()
   const { user } = useContext(AuthContext);
   const current = new Date();
   const time = current.toLocaleTimeString("en-US");
@@ -54,6 +56,7 @@ const SellerAddProductCard = () => {
         if (data.acknowledged) {
           toast.success("Booking Confirmed!");
           form.reset();
+          navigate('/dashboard/mysellingproducts')
         } else {
           toast.error(data.message);
         }

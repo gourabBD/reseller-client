@@ -25,7 +25,7 @@ const Home = () => {
           <Sliders></Sliders>
           </section>
           
-          <section className='my-5'>
+          <section className='my-5 '>
             <Advertisement></Advertisement>
           </section>
           <section className='my-5'>
