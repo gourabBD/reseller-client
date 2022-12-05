@@ -68,7 +68,7 @@ const Register = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
-
+        saveUser(user?.displayName, user?.email);
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));

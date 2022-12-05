@@ -44,6 +44,7 @@ const Login = () => {
         googleSignIn(googleProvider)
         .then(result=>{
           const user=result.user;
+          
           navigate(from, { replace: true });
         })
         .catch(error=>console.error(error))

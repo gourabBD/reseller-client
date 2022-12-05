@@ -13,12 +13,12 @@ const DashboardCategories = () => {
         setFindingUser(found);
       });
   }, []);
-  console.log(findingUser);
+  
 
   return (
     <div>
       <ul className="menu menu-vertical bg-gray-800  rounded-box">
-        {(user?.uid && findingUser?.category === "Buyer") || "" ? (
+        {(user?.uid && (findingUser?.category === "Buyer" ||(user?.email && !findingUser?.category))) ? (
           <div>
             <li>
               <Link to={"/dashboard/myorders"}>My Orders</Link>

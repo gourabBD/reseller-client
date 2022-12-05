@@ -6,6 +6,7 @@ import BookNowModal from "./BookNowModal/BookNowModal";
 import { Navigate, useNavigate } from "react-router-dom";
 import PrivateRoute from "../../Routes/PrivateRoute/PrivateRoute";
 import toast from "react-hot-toast";
+import { FaShoppingCart } from "react-icons/fa";
 
 const ProductCards = ({ product, products }) => {
   const { user } = useContext(AuthContext);
@@ -96,7 +97,7 @@ const ProductCards = ({ product, products }) => {
           <label key={_id} htmlFor={_id} className="btn btn-primary">
             Book Now{" "}
           </label>
-          <button onClick={()=>handleWishlist(_id)} className="btn btn-accent">Add to wishlist</button>
+          <button onClick={()=>handleWishlist(_id)} className="btn btn-accent btn-sm">Add to wishlist  <FaShoppingCart className="ml-2"></FaShoppingCart></button>
           <BookNowModal
             img={img}
             resalePrice={resalePrice}
