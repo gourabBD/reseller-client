@@ -34,7 +34,7 @@ const AllBuyerTable = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Job</th>
+            <th>Email</th>
 
             <th>Delete User</th>
             <th>Make Admin</th>
