@@ -12,10 +12,13 @@ const Myorders = () => {
   }, [orders]);
   return (
     <div>
-      <h1 className="text-3xl">My orders :</h1>
+<h1 className="text-3xl">My orders :</h1>
+    <div className="grid lg:grid-cols-3">
+      
       {orders?.map((order) => (
         <MyordersCard key={order?._id} order={order}></MyordersCard>
       ))}
+    </div>
     </div>
   );
 };

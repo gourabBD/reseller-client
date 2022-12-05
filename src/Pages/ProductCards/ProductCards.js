@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import BookNowModal from "./BookNowModal/BookNowModal";
 import { Navigate, useNavigate } from "react-router-dom";
 import PrivateRoute from "../../Routes/PrivateRoute/PrivateRoute";
+import toast from "react-hot-toast";
 
 const ProductCards = ({ product, products }) => {
   const { user } = useContext(AuthContext);
@@ -24,11 +25,7 @@ const ProductCards = ({ product, products }) => {
   } = product;
   const { catProduct, setCatProduct } = useState([]);
 
-  // useEffect(()=>{
-  //     fetch(`https://resale-site-server.vercel.app/products/${_id}`)
-  //     .then(res=>res.json())
-  //     .then(data=>setCatProduct(data))
-  // },[])
+  
 
   const handleModal = (event, _id) => {
     event.preventDefault();
@@ -37,11 +34,49 @@ const ProductCards = ({ product, products }) => {
     const customerEmail = form.customerEmail.value;
     const resellingPrice = form.resellingPrice.value;
     const customerPhone = form.customerPhone.value;
-    console.log(_id);
+    
     form.reset();
   };
+
+  const handleWishlist=(id)=>{
+    
+    const wishlistInfo = {
+      img: img,
+      prodId: id,
+      prodName,
+      description,
+    loc,
+    postTime,
+    yearsUse,
+    name,
+    phone,
+    orgPrice,
+    resalePrice,
+    verifiedSeller,
+    email:user?.email,
+      
+      
+    };
+    fetch(`http://localhost:5000/wishlist`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(wishlistInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Successfully added to wishlist!");
+        } else {
+          toast.error(data.message);
+        }
+      });
+
+    ;
+  }
   return (
-    <div>
+    
       <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
         <figure>
           <img src={product?.img} alt="Shoes" />
@@ -61,6 +96,7 @@ const ProductCards = ({ product, products }) => {
           <label key={_id} htmlFor={_id} className="btn btn-primary">
             Book Now{" "}
           </label>
+          <button onClick={()=>handleWishlist(_id)} className="btn btn-accent">Add to wishlist</button>
           <BookNowModal
             img={img}
             resalePrice={resalePrice}
@@ -69,7 +105,7 @@ const ProductCards = ({ product, products }) => {
           ></BookNowModal>
         </div>
       </div>
-    </div>
+   
   );
 };
 

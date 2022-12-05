@@ -138,7 +138,7 @@ const Register = () => {
           </div>
           {/* select options */}
           <div className="my-2">
-            <select
+            <select required
               className="w-full"
               {...register("category", { required: true })}
             >

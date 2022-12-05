@@ -8,12 +8,15 @@ const DashboardLayout = () => {
   return (
     <div>
       <NavBar></NavBar>
-      <div>
+      <div  className="p-5">
+
+      <div className="flex ">
         <DashboardCategories></DashboardCategories>
       </div>
 
       <div className="drawer-content ">
         <Outlet></Outlet>
+      </div>
       </div>
 
       <Footer></Footer>
