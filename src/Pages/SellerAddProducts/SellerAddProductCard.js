@@ -7,7 +7,7 @@ const SellerAddProductCard = () => {
   const navigate=useNavigate()
   const { user } = useContext(AuthContext);
   const current = new Date();
-  const time = current.toLocaleTimeString("en-US");
+  // const time = current.toLocaleTimeString("en-US");
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -80,10 +80,10 @@ const SellerAddProductCard = () => {
           name="description"
           className="input w-full input-bordered "
         />
-        <select name="category" className="select select-bordered w-full">
-          <option value="smartPhone">smartPhone </option>
-          <option value="tablet">tablet </option>
-          <option value="featured">featured </option>
+        <select name="category" className="select select-bordered w-full" required>
+          <option value="SmartPhone">SmartPhone </option>
+          <option value="Tablet">Tablet </option>
+          <option value="Featured">Featured </option>
         </select>
         <input
           type="text"

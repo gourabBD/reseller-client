@@ -12,8 +12,8 @@ const Myorders = () => {
   }, [orders]);
   return (
     <div>
-<h1 className="text-3xl">My orders :</h1>
-    <div className="grid lg:grid-cols-3">
+<h1 className="text-3xl m-5">My orders :</h1>
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
       
       {orders?.map((order) => (
         <MyordersCard key={order?._id} order={order}></MyordersCard>

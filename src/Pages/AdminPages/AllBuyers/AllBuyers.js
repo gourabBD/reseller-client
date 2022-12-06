@@ -10,7 +10,7 @@ const AllBuyers = () => {
     },[setBuyers])
     return (
         <div>
-            <h2 className="text-3xl">All Buyers</h2>
+            <h2 className="text-3xl m-5">All Buyers</h2>
             <div>
                
                <AllBuyerTable key={Math.random()} buyers={buyers} setBuyers={setBuyers}></AllBuyerTable>

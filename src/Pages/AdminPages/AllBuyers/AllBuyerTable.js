@@ -2,30 +2,47 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const AllBuyerTable = () => {
-  const [buyers, setBuyers] =useState([])
-  useEffect(()=>{
-      fetch('https://resale-site-server.vercel.app/users')
-      .then(res=>res.json())
-      .then(data=>setBuyers(data))
-  },[buyers?.length])
+  const [buyers, setBuyers] = useState([]);
+  useEffect(() => {
+    fetch("https://resale-site-server.vercel.app/users")
+      .then((res) => res.json())
+      .then((data) => setBuyers(data));
+  }, [buyers?.length]);
+
+  const handleMakeAdmin = (buyer) => {
+    fetch(`https://resale-site-server.vercel.app/users/${buyer?._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ category: "Admin" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success(`${buyer?.name} is now an admin`);
+          window.location.reload();
+        }
+      });
+  };
 
   const handleDeleteBuyer = (buyer) => {
     const proceed = window.confirm(
       "Are you sure, you want to delete this user?"
     );
-  
-  if(proceed){fetch(`https://resale-site-server.vercel.app/users/${buyer?._id}`,{
-        method:"DELETE",
+
+    if (proceed) {
+      fetch(`https://resale-site-server.vercel.app/users/${buyer?._id}`, {
+        method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          
           if (data.deletedCount > 0) {
             toast.success(`User deleted successfully!`);
             window.location.reload();
           }
-        });}
-    
+        });
+    }
   };
 
   return (
@@ -40,7 +57,8 @@ const AllBuyerTable = () => {
             <th>Make Admin</th>
           </tr>
         </thead>
-        {buyers?.filter((b) => b?.category === "Buyer" || !b?.category)
+        {buyers
+          ?.filter((b) => b?.category === "Buyer" || !b?.category)
           ?.map((buyer) => (
             <tbody key={buyer?._id}>
               <tr>
@@ -60,13 +78,19 @@ const AllBuyerTable = () => {
 
                 <th>
                   <button
-                  className="btn btn-ghost btn-xs"
-                  onClick={()=> handleDeleteBuyer(buyer)}>
+                    className="btn btn-accent btn-sm"
+                    onClick={() => handleDeleteBuyer(buyer)}
+                  >
                     Delete User
                   </button>
                 </th>
                 <th>
-                  <button className="btn btn-ghost btn-xs">Make Admin</button>
+                  <button
+                    onClick={() => handleMakeAdmin(buyer)}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Make Admin
+                  </button>
                 </th>
               </tr>
             </tbody>

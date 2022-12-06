@@ -24,9 +24,7 @@ const ProductCards = ({ product, products }) => {
     verifiedSeller,
     img,
   } = product;
-  const { catProduct, setCatProduct } = useState([]);
-
-  
+  // const { catProduct, setCatProduct } = useState([]);
 
   const handleModal = (event, _id) => {
     event.preventDefault();
@@ -35,30 +33,27 @@ const ProductCards = ({ product, products }) => {
     const customerEmail = form.customerEmail.value;
     const resellingPrice = form.resellingPrice.value;
     const customerPhone = form.customerPhone.value;
-    
+
     form.reset();
   };
 
-  const handleWishlist=(id)=>{
-    
+  const handleWishlist = (id) => {
     const wishlistInfo = {
       img: img,
       prodId: id,
       prodName,
       description,
-    loc,
-    postTime,
-    yearsUse,
-    name,
-    phone,
-    orgPrice,
-    resalePrice,
-    verifiedSeller,
-    email:user?.email,
-      
-      
+      loc,
+      postTime,
+      yearsUse,
+      name,
+      phone,
+      orgPrice,
+      resalePrice,
+      verifiedSeller,
+      email: user?.email,
     };
-    fetch(`http://localhost:5000/wishlist`, {
+    fetch(`https://resale-site-server.vercel.app/wishlist`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,40 +68,41 @@ const ProductCards = ({ product, products }) => {
           toast.error(data.message);
         }
       });
-
-    ;
-  }
+  };
   return (
-    
-      <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
-        <figure>
-          <img src={product?.img} alt="Shoes" />
-        </figure>
-        <div className="card-body text-start">
-          <h2 className="card-title">{prodName} </h2>
-          <p>{description}</p>
-          <span className="flex ">
-            Seller Name: {name}{" "}
-            {verifiedSeller ? <GoVerified></GoVerified> : "(Not Verified)"}
-          </span>
-          <p>Location of seller: {loc}</p>
-          <p>Phone: {phone}</p>
-          <p>Resale Price: {resalePrice} Tk.</p>
-          <p>Original Price: {orgPrice} Tk.</p>
-          <p>Used for: {yearsUse} Years</p>
-          <label key={_id} htmlFor={_id} className="btn btn-primary">
-            Book Now{" "}
-          </label>
-          <button onClick={()=>handleWishlist(_id)} className="btn btn-accent btn-sm">Add to wishlist  <FaShoppingCart className="ml-2"></FaShoppingCart></button>
-          <BookNowModal
-            img={img}
-            resalePrice={resalePrice}
-            id={_id}
-            prodName={prodName}
-          ></BookNowModal>
-        </div>
+    <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
+      <figure>
+        <img src={product?.img} alt="Shoes" />
+      </figure>
+      <div className="card-body text-start">
+        <h2 className="card-title">{prodName} </h2>
+        <p>{description}</p>
+        <span className="flex ">
+          Seller Name: {name}{" "}
+          {verifiedSeller ? <GoVerified></GoVerified> : "(Not Verified)"}
+        </span>
+        <p>Location of seller: {loc}</p>
+        <p>Phone: {phone}</p>
+        <p>Resale Price: {resalePrice} Tk.</p>
+        <p>Original Price: {orgPrice} Tk.</p>
+        <p>Used for: {yearsUse} Years</p>
+        <label key={_id} htmlFor={_id} className="btn btn-primary">
+          Book Now{" "}
+        </label>
+        <button
+          onClick={() => handleWishlist(_id)}
+          className="btn btn-accent btn-sm"
+        >
+          Add to wishlist <FaShoppingCart className="ml-2"></FaShoppingCart>
+        </button>
+        <BookNowModal
+          img={img}
+          resalePrice={resalePrice}
+          id={_id}
+          prodName={prodName}
+        ></BookNowModal>
       </div>
-   
+    </div>
   );
 };
 

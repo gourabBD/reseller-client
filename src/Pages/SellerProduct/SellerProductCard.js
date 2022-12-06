@@ -72,7 +72,7 @@ const SellerProductCard = ({ product }) => {
   };
 
   return (
-    <div>
+    
       <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
         <figure>
           <img src={product?.img} alt="Shoes" />
@@ -94,7 +94,7 @@ const SellerProductCard = ({ product }) => {
           </button>
         </div>
       </div>
-    </div>
+    
   );
 };
 
