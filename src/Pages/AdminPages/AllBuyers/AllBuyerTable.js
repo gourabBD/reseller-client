@@ -11,7 +11,7 @@ const AllBuyerTable = () => {
 
   const handleDeleteBuyer = (buyer) => {
     const proceed = window.confirm(
-      "Are you sure, you want to cancel this order?"
+      "Are you sure, you want to delete this user?"
     );
   
   if(proceed){fetch(`https://resale-site-server.vercel.app/users/${buyer?._id}`,{
