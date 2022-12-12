@@ -5,7 +5,7 @@ import ProductCards from '../ProductCards/ProductCards';
 const CategoryProducts = ({cat}) => {
   
     const products=useLoaderData()
-    console.log(products)
+    
     return (
         <div className='p-5 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {

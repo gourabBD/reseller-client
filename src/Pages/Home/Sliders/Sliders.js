@@ -1,26 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sliders = () => {
     return (
        
-            <div className="carousel w-full">
-  <div id="slide1" className="carousel-item relative w-full h-96">
-    <img src="https://www.gsmarena.com.bd/images/products/Vivo-X90-Pro-Red.jpg" className="w-full h-96" alt='' />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide2" className="carousel-item relative w-full h-96">
-    <img src="https://www.gsmarena.com.bd/images/products/Honor-80.jpg" className="w-full h-96" alt='' />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  
-        </div>
+      <div className="hero min-h-screen " style={{ backgroundImage: `url("https://www.encashmobile.in/assests/blog/Is-it-safe-to-sell-my-old-mobile-online.jpg")` }}>
+      <div className="hero-overlay bg-opacity-50"></div>
+      <div className="hero-content text-center text-neutral-content mt-80">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-5xl text-white font-bold">Hello there!!</h1>
+          <p className="mb-5 text-white">You are not happy with your current phone? May be you can make others happy. That's why we are here, to give you a chance to make an efficient move with your used phone. </p>
+          <Link to={'/products/All'}><button className="btn btn-primary">Get Started</button></Link>
         
+        </div>
+      </div>
+    </div>
      
     );
 };

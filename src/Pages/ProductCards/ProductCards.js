@@ -28,6 +28,7 @@ const ProductCards = ({ product, products }) => {
 
   const handleModal = (event, _id) => {
     event.preventDefault();
+    
     const form = event.target;
     const customer = form.customer.value;
     const customerEmail = form.customerEmail.value;
@@ -53,7 +54,7 @@ const ProductCards = ({ product, products }) => {
       verifiedSeller,
       email: user?.email,
     };
-    fetch(`https://resale-site-server.vercel.app/wishlist`, {
+   if(user?.email){ fetch(`https://resale-site-server.vercel.app/wishlist`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,19 +68,22 @@ const ProductCards = ({ product, products }) => {
         } else {
           toast.error(data.message);
         }
-      });
+      });}
+      else{
+        toast.error("LogIn First Please!")
+      }
   };
   return (
     <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
       <figure>
-        <img src={product?.img} alt="Shoes" />
+        <img className="h-96 w-full" src={product?.img} alt="Shoes" />
       </figure>
       <div className="card-body text-start">
         <h2 className="card-title">{prodName} </h2>
         <p>{description}</p>
         <span className="flex ">
-          Seller Name: {name}{" "}
-          {verifiedSeller ? <GoVerified></GoVerified> : "(Not Verified)"}
+          Seller Name: {name} {" "}
+          {verifiedSeller ?  <GoVerified></GoVerified> : "(Not Verified)"}
         </span>
         <p>Location of seller: {loc}</p>
         <p>Phone: {phone}</p>

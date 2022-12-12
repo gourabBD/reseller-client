@@ -16,7 +16,7 @@ const DashboardCategories = () => {
   
 
   return (
-    <div>
+    <div className="w-full ">
       <ul className="menu menu-vertical bg-gray-800  rounded-box">
         {(user?.uid && (findingUser?.category === "Buyer" ||(user?.email && !findingUser?.category))) ? (
           <div>

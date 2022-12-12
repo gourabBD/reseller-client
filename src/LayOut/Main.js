@@ -11,9 +11,9 @@ import Footer from "../Pages/Shared/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div >
         <NavBar></NavBar>
-        <Outlet></Outlet>
+        <Outlet ></Outlet>
         <Footer></Footer>
             
         </div>

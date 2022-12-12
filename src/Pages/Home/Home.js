@@ -12,8 +12,8 @@ const Home = () => {
     
     return (
       <div className='lg:flex md:grid sm:grid'>
-      <div className='bg-gray-800 rounded mx-2'>
-      <section className='my-10 mx-2'>
+      <div className='bg-gray-800 rounded mx-2 '>
+      <section className='my-10 mx-2 '>
           <h3 className="text-3xl">Categories:</h3>
             <Categories></Categories>
           </section>
@@ -21,7 +21,7 @@ const Home = () => {
 
         <div className='mx-5 ' >
           <section>
-          <h3 className='text-3xl my-5'>Upcoming devices in upcoming days</h3>
+          
           <Sliders></Sliders>
           </section>
           
