@@ -10,7 +10,7 @@ const AllSellers = () => {
     fetch("https://resale-site-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setsellers(data));
-  }, [sellers?.length]);
+  }, [sellers]);
 
   const handleVerified = (seller) => {
     fetch(
@@ -28,7 +28,7 @@ const AllSellers = () => {
         if (data.modifiedCount > 0) {
           setVerified(false);
           toast.success(`${seller?.name} is now a verified seller`);
-          window.location.reload();
+          
         }
       });
   };
@@ -45,7 +45,7 @@ const AllSellers = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success(`${seller?.name} is now an admin`);
-          window.location.reload();
+          
         }
       });
   };
@@ -63,7 +63,7 @@ const AllSellers = () => {
         .then((data) => {
           if (data.deletedCount > 0) {
             toast.success(`User deleted successfully!`);
-            window.location.reload();
+            
           }
         });
     }

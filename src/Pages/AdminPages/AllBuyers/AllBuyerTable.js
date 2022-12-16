@@ -7,7 +7,7 @@ const AllBuyerTable = () => {
     fetch("https://resale-site-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setBuyers(data));
-  }, [buyers?.length]);
+  }, [buyers]);
 
   const handleMakeAdmin = (buyer) => {
     fetch(`https://resale-site-server.vercel.app/users/${buyer?._id}`, {
@@ -21,7 +21,7 @@ const AllBuyerTable = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success(`${buyer?.name} is now an admin`);
-          window.location.reload();
+         
         }
       });
   };
@@ -39,7 +39,7 @@ const AllBuyerTable = () => {
         .then((data) => {
           if (data.deletedCount > 0) {
             toast.success(`User deleted successfully!`);
-            window.location.reload();
+            
           }
         });
     }
