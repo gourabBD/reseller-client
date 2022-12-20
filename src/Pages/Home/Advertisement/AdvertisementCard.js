@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdvertisementCard = ({advertise}) => {
-    const {img,description,prodName,yearsUse}=advertise
+    const {img,description,prodName,yearsUse,_id}=advertise
     return (
         
             <div  className="card  bg-base-100 shadow-xl border border-gray-600 ">

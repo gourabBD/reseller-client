@@ -21,7 +21,8 @@ const SellerProductCard = ({ product }) => {
     verifiedSeller,
   } = product;
 
-  const handleDelete = () => {
+  const handleDelete = (_id) => {
+   
     fetch(`https://resale-site-server.vercel.app/products/${_id}`, {
       method: "DELETE",
     })
@@ -29,16 +30,23 @@ const SellerProductCard = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
+          
           toast.success(` ${prodName} product has been deleted successfully!`);
         }
-      });
-  };
+       
+      })
 
-  const handleAdvertise = (event) => {
-    event.preventDefault();
-    const form = event.target;
+   
+  };
+  
+  
+
+  const handleAdvertise = () => {
+   
+   
 
     const addProd = {
+      pId:_id,
       img,
       description,
       category,
@@ -64,7 +72,7 @@ const SellerProductCard = ({ product }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Advertising Confirmed!");
-          form.reset();
+          
         } else {
           toast.error(data.message);
         }
@@ -89,9 +97,10 @@ const SellerProductCard = ({ product }) => {
           <button onClick={handleAdvertise} className="btn btn-primary">
             Advertise
           </button>
-          <button onClick={handleDelete} className="btn btn-error">
+          <button onClick={()=>handleDelete(_id)} className="btn btn-error">
             Delete
           </button>
+         
         </div>
       </div>
     
