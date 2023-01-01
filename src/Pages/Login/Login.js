@@ -10,18 +10,16 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
     const {googleSignIn,setUser,loading}=useContext(AuthContext)
-    const [loginError, setLoginError] = useState('');
+    const [loginError, setLoginError] = useState("");
     const [loginUserEmail,setLoginUserEmail]= useState('')
-    // const [token]=useToken(loginUserEmail)
+    
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+    
 
-    // if(token){
-    //     navigate(from, {replace: true});
-    // }
-
+    
     const handleLogin = data => {
         
         setLoginError('');
@@ -34,8 +32,11 @@ const Login = () => {
                
             })
             .catch(error => {
-                console.log(error.message)
+               
                 setLoginError(error.message);
+                console.log(error.message)
+                console.log(loginError)
+                
             });
     }
     const googleProvider = new GoogleAuthProvider();
@@ -79,8 +80,8 @@ const Login = () => {
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
                     <input className='btn btn-primary w-full' value="Login" type="submit" />
-                    <div>
-                        {loginError && <p className='text-red-600'>{loginError}</p>}
+                   <div>
+                       {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
                 <p>New to Reseller? <Link className='text-blue-600 underline' to="/register">Create new Account.</Link></p>

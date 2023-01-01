@@ -11,7 +11,7 @@ const MyWishList = () => {
       .then((res) => res.json())
       .then((data) => setWishProd(data));
   }, [setWishProd]);
-  console.log(wishProd);
+  
   return (
     <div>
       <h1 className="text-3xl">My Wish List</h1>

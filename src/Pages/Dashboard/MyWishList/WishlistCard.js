@@ -5,11 +5,11 @@ import BookNowModal from '../../ProductCards/BookNowModal/BookNowModal';
 const WishlistCard = ({wish}) => {
     const {_id,email,description,img,loc,name,orgPrice,phone,postTime,prodId,prodName,resalePrice,verifiedSeller,yearsUse}=wish
     return (
-        <div className="card  w-full bg-gray-800 shadow-xl  my-5">
+        <div className="card p-2 w-full bg-gray-800 shadow-xl  my-5">
         <figure>
-          <img className='h-96 w-full' src={img} alt="Shoes" />
+          <img className='h-64 w-full' src={img} alt="Shoes" />
         </figure>
-        <div className="card-body text-start">
+        <div className="card-body text-start overflow-y-auto h-72">
           <h2 className="card-title">{prodName} </h2>
           <p>{description}</p>
           <span className="flex ">

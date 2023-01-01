@@ -4,7 +4,7 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const DashboardCategories = () => {
   const { user } = useContext(AuthContext);
-  const [findingUser, setFindingUser] = useState("");
+  const [findingUser, setFindingUser] = useState('');
   useEffect(() => {
     fetch("https://resale-site-server.vercel.app/users")
       .then((res) => res.json())
@@ -12,7 +12,7 @@ const DashboardCategories = () => {
         const found = data.find((d) => user?.email === d?.email);
         setFindingUser(found);
       });
-  }, []);
+  }, [user?.email]);
   
 
   return (

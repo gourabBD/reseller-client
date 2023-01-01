@@ -146,7 +146,7 @@ const SellerAddProductCard = () => {
         />
 
         <br />
-        <input className="btn btn-accent w-full" type="submit" value="Submit" />
+        <input className="btn btn-primary w-full" type="submit" value="Submit" />
       </form>
     </div>
   );

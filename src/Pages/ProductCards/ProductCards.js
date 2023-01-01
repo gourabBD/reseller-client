@@ -10,6 +10,19 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const ProductCards = ({ product, products }) => {
   const { user } = useContext(AuthContext);
+  
+  const [findingUser, setFindingUser] = useState('');
+  useEffect(() => {
+    fetch("https://resale-site-server.vercel.app/users")
+      .then((res) => res.json())
+      .then((data) => {
+        const found = data.find((d) => user?.email === d?.email);
+        setFindingUser(found);
+      });
+  }, [user?.email]);
+  
+
+
   const {
     prodName,
     _id,
@@ -74,31 +87,31 @@ const ProductCards = ({ product, products }) => {
       }
   };
   return (
-    <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
+    <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5 ">
       <figure>
-        <img className="h-96 w-full" src={product?.img} alt="Shoes" />
+        <img className="h-64 w-full" src={product?.img} alt="Shoes" />
       </figure>
-      <div className="card-body text-start">
+      <div className="card-body text-start h-64  overflow-y-auto my-2">
         <h2 className="card-title">{prodName} </h2>
-        <p>{description}</p>
-        <span className="flex ">
-          Seller Name: {name} {" "}
-          {verifiedSeller ?  <GoVerified></GoVerified> : "(Not Verified)"}
-        </span>
-        <p>Location of seller: {loc}</p>
-        <p>Phone: {phone}</p>
-        <p>Resale Price: {resalePrice} Tk.</p>
-        <p>Original Price: {orgPrice} Tk.</p>
-        <p>Used for: {yearsUse} Years</p>
-        <label key={_id} htmlFor={_id} className="btn btn-primary">
+        <p ><span className="font-bold underline mx-1">Description:</span> {description}</p>
+        <p className="flex ">
+        <span className="font-bold underline mx-1">Seller Name:</span>   {name} {" "}
+          {verifiedSeller ?  <GoVerified className="text-blue-600"></GoVerified> : "(Not Verified)"}
+        </p>
+        <p><span className="font-bold underline mx-1">Location of seller:</span> {loc}</p>
+        <p> <span className="font-bold underline mx-1">Phone:</span>  {phone}</p>
+        <p><span className="font-bold underline mx-1">Resale Price:</span>  {resalePrice} Tk.</p>
+        <p><span className="font-bold underline mx-1">Original Price:</span>  {orgPrice} Tk.</p>
+        <p><span className="font-bold underline mx-1">Used for:</span>  {yearsUse} Years</p>
+       {user?.uid && findingUser?.category === "Buyer" ?<label key={_id} htmlFor={_id} className="btn btn-primary">
           Book Now{" "}
-        </label>
-        <button
+        </label> :<></>}
+       {user?.uid && findingUser?.category === "Buyer" ?<button
           onClick={() => handleWishlist(_id)}
-          className="btn btn-accent btn-sm"
+          className="btn btn-accent btn-sm "
         >
           Add to wishlist <FaShoppingCart className="ml-2"></FaShoppingCart>
-        </button>
+        </button>: <></>}
         <BookNowModal
           img={img}
           resalePrice={resalePrice}

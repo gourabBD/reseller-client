@@ -11,12 +11,17 @@ import Sponsored from './Sponsored/Sponsored';
 const Home = () => {
     
     return (
-      <div className='lg:flex md:grid sm:grid'>
+      <div className='lg:flex md:grid sm:grid '>
+      <div className='relative'>
+<div className='sticky top-0'>
+
       <div className='bg-gray-800 rounded mx-2 '>
       <section className='my-10 mx-2 '>
           <h3 className="text-3xl">Categories:</h3>
             <Categories></Categories>
           </section>
+      </div>
+</div>
       </div>
 
         <div className='mx-5 ' >

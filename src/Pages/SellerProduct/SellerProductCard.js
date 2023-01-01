@@ -83,9 +83,9 @@ const SellerProductCard = ({ product }) => {
     
       <div className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
         <figure>
-          <img src={product?.img} alt="Shoes" />
+          <img className="h-40" src={product?.img} alt="Shoes" />
         </figure>
-        <div className="card-body text-start">
+        <div className="card-body text-start h-80 overflow-y-auto my-2">
           <h2 className="card-title">{prodName} </h2>
           <p>{description}</p>
           <span className="flex ">Seller Name: {name} </span>
