@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sponsored = () => {
     return (
-        <div>
+        <div >
             <h3 className="text-3xl my-5">Sponsored By</h3>
             <div className="carousel w-full">
   <div id="slider1" className="carousel-item relative w-full h-96">

@@ -4,7 +4,7 @@ const AdvertisementCard = ({advertise}) => {
     const {img,description,prodName,yearsUse,_id}=advertise
     return (
         
-            <div  className="card  bg-base-100 shadow-xl border border-gray-600 ">
+            <div data-aos="fade-right" className="card mb-2  bg-base-100 shadow-xl border border-gray-600 ">
             <figure><img style={{height: '300px'}} className='w-full ' src={img} alt="Shoes" /></figure>
   <div className="card-body text-left">
     <h2 className="card-title ">Device Name: <span>{prodName}</span> </h2>

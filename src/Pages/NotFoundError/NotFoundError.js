@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotFoundError = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
 <h1 className="text-4xl my-5">Your url is not valid.Please Check the url again!</h1>
         <div className='flex justify-center  h-96'>
         

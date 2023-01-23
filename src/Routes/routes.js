@@ -24,6 +24,7 @@ import SellerProduct from "../Pages/SellerProduct/SellerProduct";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
         element: <CategoryProducts></CategoryProducts>,
         loader:({params})=>fetch(`https://resale-site-server.vercel.app/products/${params.category}`),
       },
+     
 
       {
         path: "/login",
