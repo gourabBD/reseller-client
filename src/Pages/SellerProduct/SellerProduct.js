@@ -13,7 +13,7 @@ const SellerProduct = () => {
       .then((data) => setProducts(data));
   }, [products]);
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <h1 className="text-3xl m-5">My Selling Products:</h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {products?.map((product) => (

@@ -11,7 +11,7 @@ const Advertisement = () => {
   return (
     <div>
       <h3 className="text-3xl my-5">Available Phones</h3>
-      <div className="lg:grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-2">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {advertise?.map((ad) => (
           <AdvertisementCard key={ad?._id} advertise={ad}></AdvertisementCard>
         ))}

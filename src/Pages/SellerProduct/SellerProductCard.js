@@ -81,7 +81,7 @@ const SellerProductCard = ({ product }) => {
 
   return (
     
-      <div data-aos="flip-up" className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5">
+      <div data-aos="flip-up" className="card lg:w-96 md:w-80 sm:w-auto bg-black border border-yellow-700 rounded-none shadow-xl p-5 my-5">
         <figure>
           <img className="h-40" src={product?.img} alt="Shoes" />
         </figure>

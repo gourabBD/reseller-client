@@ -15,8 +15,8 @@ const Home = () => {
       <div className='relative'>
 <div className='sticky top-0'>
 
-      <div className='bg-gray-800 rounded mx-2 '>
-      <section className='my-10 mx-2 '>
+      <div className='bg-black rounded  mx-2 '>
+      <section className='my-10 mx-2 border  border-yellow-700 p-2'>
           <h3 className="text-3xl">Categories:</h3>
             <Categories></Categories>
           </section>
@@ -24,7 +24,7 @@ const Home = () => {
 </div>
       </div>
 
-        <div className='mx-5 ' >
+        <div className='mx-2' >
           <section>
           
           <Sliders></Sliders>

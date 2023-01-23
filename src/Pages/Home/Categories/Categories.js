@@ -10,8 +10,8 @@ const Categories = ({ product }) => {
   }, []);
 
   return (
-    <div className="my-5 ">
-      <ul className="menu menu-vertical bg-gray-800  rounded-box">
+    <div className="my-5  ">
+      <ul className="menu menu-vertical bg-black  rounded-box">
         {categories?.map((cat) => (
           <li cat={cat} key={cat?._id}>
             <Link to={`/products/${cat?.category}`} cat={cat}>

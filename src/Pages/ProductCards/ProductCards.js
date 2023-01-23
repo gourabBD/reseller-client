@@ -87,9 +87,9 @@ const ProductCards = ({ product, products }) => {
       }
   };
   return (
-    <div data-aos="flip-up" className="card lg:w-96 md:w-80 sm:w-auto bg-gray-800 shadow-xl p-5 my-5 ">
+    <div data-aos="flip-up" className="card bg-black border border-yellow-700  lg:w-auto md:w-80 sm:w-auto rounded-none shadow-xl  my-5 ">
       <figure>
-        <img className="h-64 w-full " src={product?.img} alt="Shoes" />
+        <img className="h-60 w-full " src={product?.img} alt="Shoes" />
       </figure>
       <div className="card-body text-start h-64 overflow-y-auto   my-2">
         <h2 className="card-title">{prodName} </h2>
@@ -103,12 +103,12 @@ const ProductCards = ({ product, products }) => {
         <p><span className="font-bold underline mx-1">Resale Price:</span>  {resalePrice} Tk.</p>
         <p><span className="font-bold underline mx-1">Original Price:</span>  {orgPrice} Tk.</p>
         <p><span className="font-bold underline mx-1">Used for:</span>  {yearsUse} Years</p>
-       {user?.uid && findingUser?.category === "Buyer" ?<label key={_id} htmlFor={_id} className="btn btn-sm btn-primary">
+       {user?.uid && findingUser?.category === "Buyer" ?<label key={_id} htmlFor={_id} className="btn btn-sm btn-success">
           Book Now{" "}
         </label> :<></>}
        {user?.uid && findingUser?.category === "Buyer" ?<button
           onClick={() => handleWishlist(_id)}
-          className="btn btn-secondary btn-sm "
+          className="btn btn-warning btn-sm "
         >
           Add to wishlist <FaShoppingCart className="ml-2"></FaShoppingCart>
         </button>: <></>}

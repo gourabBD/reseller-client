@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 const Sliders = () => {
   return (
     <div
-      className="hero min-h-screen "
+      className="hero  min-h-screen "
       style={{
         backgroundImage: `url("https://i.ibb.co/7kc7rnw/mobiles.webp")`,
       }}
@@ -34,7 +34,7 @@ const Sliders = () => {
           
         </div>
         <Link to={"/products/All"}>
-            <button className="btn btn-primary ">Get Started</button>
+            <button className="btn btn-success ">Get Started</button>
           </Link>
       </div>
     </div>

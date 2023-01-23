@@ -3,7 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div className='p-5 min-h-screen'>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300  bg-gray-800 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300  bg-black rounded-box">
   <div className="collapse-title text-xl font-medium">
   What are the different ways to manage a state in a React application?
   </div>
@@ -12,7 +12,7 @@ const Blogs = () => {
     <p>1. URL <br /> 2. Web Storage <br /> 3. Local State <br /> 4. Lifted State <br />5. Derived State </p>
   </div>
 </div>
-<div tabIndex={1} className="collapse collapse-arrow border border-base-300  bg-gray-800 rounded-box">
+<div tabIndex={1} className="collapse collapse-arrow border border-base-300  bg-black rounded-box">
   <div className="collapse-title text-xl font-medium">
   How does prototypical inheritance work?
   </div>
@@ -20,7 +20,7 @@ const Blogs = () => {
     <p>The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the Prototype of an object, we use Object. getPrototypeOf and Object.</p>
   </div>
 </div>
-<div tabIndex={2} className="collapse collapse-arrow border border-base-300  bg-gray-800 rounded-box">
+<div tabIndex={2} className="collapse collapse-arrow border border-base-300  bg-black rounded-box">
   <div className="collapse-title text-xl font-medium">
   What is a unit test? Why should we write unit tests?
   </div>
@@ -30,7 +30,7 @@ const Blogs = () => {
     The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages. Thats why we should write it.</p>
   </div>
 </div>
-<div tabIndex={3} className="collapse collapse-arrow border border-base-300  bg-gray-800 rounded-box">
+<div tabIndex={3} className="collapse collapse-arrow border border-base-300  bg-black rounded-box">
   <div className="collapse-title text-xl font-medium">
   React vs. Angular vs. Vue?
   </div>

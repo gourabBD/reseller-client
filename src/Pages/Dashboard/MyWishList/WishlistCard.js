@@ -5,7 +5,7 @@ import BookNowModal from '../../ProductCards/BookNowModal/BookNowModal';
 const WishlistCard = ({wish}) => {
     const {_id,email,description,img,loc,name,orgPrice,phone,postTime,prodId,prodName,resalePrice,verifiedSeller,yearsUse}=wish
     return (
-        <div data-aos="fade-right" className="card p-2 w-full bg-gray-800 shadow-xl  my-5">
+        <div data-aos="fade-right" className="card border border-yellow-700 rounded-none  p-2 w-full bg-black shadow-xl  my-5">
         <figure>
           <img className='h-64 w-full' src={img} alt="Shoes" />
         </figure>
@@ -22,7 +22,7 @@ const WishlistCard = ({wish}) => {
           <p>Original Price: {orgPrice} Tk.</p>
           <p>Used for: {yearsUse} Years</p>
           <p>Product Id: {prodId} </p>
-          <label key={_id} htmlFor={_id} className="btn btn-primary">
+          <label key={_id} htmlFor={_id} className="btn btn-success">
             Book Now{" "}
           </label>
          
