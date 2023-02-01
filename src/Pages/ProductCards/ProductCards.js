@@ -7,11 +7,13 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import PrivateRoute from "../../Routes/PrivateRoute/PrivateRoute";
 import toast from "react-hot-toast";
 import { FaShoppingCart } from "react-icons/fa";
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const ProductCards = ({ product, products }) => {
   const { user } = useContext(AuthContext);
-  
-  const [findingUser, setFindingUser] = useState('');
+
+  const [findingUser, setFindingUser] = useState("");
   useEffect(() => {
     fetch("https://resale-site-server.vercel.app/users")
       .then((res) => res.json())
@@ -20,8 +22,6 @@ const ProductCards = ({ product, products }) => {
         setFindingUser(found);
       });
   }, [user?.email]);
-  
-
 
   const {
     prodName,
@@ -41,7 +41,7 @@ const ProductCards = ({ product, products }) => {
 
   const handleModal = (event, _id) => {
     event.preventDefault();
-    
+
     const form = event.target;
     const customer = form.customer.value;
     const customerEmail = form.customerEmail.value;
@@ -67,51 +67,91 @@ const ProductCards = ({ product, products }) => {
       verifiedSeller,
       email: user?.email,
     };
-   if(user?.email){ fetch(`https://resale-site-server.vercel.app/wishlist`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(wishlistInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Successfully added to wishlist!");
-        } else {
-          toast.error(data.message);
-        }
-      });}
-      else{
-        toast.error("LogIn First Please!")
-      }
+    if (user?.email) {
+      fetch(`https://resale-site-server.vercel.app/wishlist`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(wishlistInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("Successfully added to wishlist!");
+          } else {
+            toast.error(data.message);
+          }
+        });
+    } else {
+      toast.error("LogIn First Please!");
+    }
   };
   return (
-    <div data-aos="flip-up" className="card bg-black border border-yellow-700  lg:w-auto md:w-80 sm:w-auto rounded-none shadow-xl  my-5 ">
-      <figure>
-        <img className="h-60 w-full " src={product?.img} alt="Shoes" />
-      </figure>
+    <div
+      style={{ height: "550px" }}
+      data-aos="flip-up"
+      className="card bg-black border border-yellow-700  lg:w-auto md:w-80 sm:w-auto rounded-none shadow-xl  my-5 "
+    >
+      <PhotoProvider>
+        <PhotoView src={img}>
+          <figure style={{ height: "500px" }}>
+            <img className="h-full w-full " src={product?.img} alt="Shoes" />
+          </figure>
+        </PhotoView>
+      </PhotoProvider>
+
       <div className="card-body text-start h-64 overflow-y-auto   my-2">
         <h2 className="card-title">{prodName} </h2>
-        <p ><span className="font-bold underline mx-1">Description:</span> {description}</p>
-        <p className="flex ">
-        <span className="font-bold underline mx-1">Seller Name:</span>   {name} {" "}
-          {verifiedSeller ?  <GoVerified className="text-blue-600"></GoVerified> : "(Not Verified)"}
+        <p>
+          <span className="font-bold underline mx-1">Description:</span>{" "}
+          {description}
         </p>
-        <p><span className="font-bold underline mx-1">Location of seller:</span> {loc}</p>
-        <p> <span className="font-bold underline mx-1">Phone:</span>  {phone}</p>
-        <p><span className="font-bold underline mx-1">Resale Price:</span>  {resalePrice} Tk.</p>
-        <p><span className="font-bold underline mx-1">Original Price:</span>  {orgPrice} Tk.</p>
-        <p><span className="font-bold underline mx-1">Used for:</span>  {yearsUse} Years</p>
-       {user?.uid && findingUser?.category === "Buyer" ?<label key={_id} htmlFor={_id} className="btn btn-sm btn-success">
-          Book Now{" "}
-        </label> :<></>}
-       {user?.uid && findingUser?.category === "Buyer" ?<button
-          onClick={() => handleWishlist(_id)}
-          className="btn btn-warning btn-sm "
-        >
-          Add to wishlist <FaShoppingCart className="ml-2"></FaShoppingCart>
-        </button>: <></>}
+        <p className="flex ">
+          <span className="font-bold underline mx-1">Seller Name:</span> {name}{" "}
+          {verifiedSeller ? (
+            <GoVerified className="text-blue-600"></GoVerified>
+          ) : (
+            "(Not Verified)"
+          )}
+        </p>
+        <p>
+          <span className="font-bold underline mx-1">Location of seller:</span>{" "}
+          {loc}
+        </p>
+        <p>
+          {" "}
+          <span className="font-bold underline mx-1">Phone:</span> {phone}
+        </p>
+        <p>
+          <span className="font-bold underline mx-1">Resale Price:</span>{" "}
+          {resalePrice} Tk.
+        </p>
+        <p>
+          <span className="font-bold underline mx-1">Original Price:</span>{" "}
+          {orgPrice} Tk.
+        </p>
+        <p>
+          <span className="font-bold underline mx-1">Used for:</span> {yearsUse}{" "}
+          Years
+        </p>
+        {user?.uid && findingUser?.category === "Buyer" ? (
+          <label key={_id} htmlFor={_id} className="btn btn-sm btn-success">
+            Book Now{" "}
+          </label>
+        ) : (
+          <></>
+        )}
+        {user?.uid && findingUser?.category === "Buyer" ? (
+          <button
+            onClick={() => handleWishlist(_id)}
+            className="btn btn-warning btn-sm "
+          >
+            Add to wishlist <FaShoppingCart className="ml-2"></FaShoppingCart>
+          </button>
+        ) : (
+          <></>
+        )}
         <BookNowModal
           img={img}
           resalePrice={resalePrice}

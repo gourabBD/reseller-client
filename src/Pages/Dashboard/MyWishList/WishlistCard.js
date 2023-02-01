@@ -1,14 +1,21 @@
 import React from 'react';
 import { GoVerified } from 'react-icons/go';
 import BookNowModal from '../../ProductCards/BookNowModal/BookNowModal';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const WishlistCard = ({wish}) => {
     const {_id,email,description,img,loc,name,orgPrice,phone,postTime,prodId,prodName,resalePrice,verifiedSeller,yearsUse}=wish
     return (
-        <div data-aos="fade-right" className="card border border-yellow-700 rounded-none  p-2 w-full bg-black shadow-xl  my-5">
-        <figure>
-          <img className='h-64 w-full' src={img} alt="Shoes" />
+        <div style={{height: '550px'}} data-aos="fade-right" className="card border border-yellow-700 rounded-none  p-2 w-full bg-black shadow-xl  my-5">
+         <PhotoProvider>
+         <PhotoView src={img}> 
+
+        <figure style={{height: '500px'}}>
+          <img className='h-full w-full' src={img} alt="Shoes" />
         </figure>
+         </PhotoView>
+         </PhotoProvider>
         <div className="card-body text-start overflow-y-auto h-72">
           <h2 className="card-title">{prodName} </h2>
           <p>{description}</p>
