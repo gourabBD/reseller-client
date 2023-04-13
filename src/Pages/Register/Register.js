@@ -103,7 +103,7 @@ const Register = () => {
             <input
               type="email"
               {...register("email", {
-                required: true,
+                required: "Email is required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -127,7 +127,7 @@ const Register = () => {
                 pattern: {
                   value: /(?=.*[a-z])(?=.*[!@#$&*])(?=.*[0-9])/,
                   message:
-                    "Password must have uppercase, number and special characters",
+                    "Password must have alphabets, number and special characters",
                 },
               })}
               className="input input-bordered w-full max-w-xs"
@@ -137,9 +137,9 @@ const Register = () => {
             )}
           </div>
           {/* select options */}
-          <div className="my-2">
+          <div className="my-2 ">
             <select required
-              className="w-full"
+              className="w-full bg-black text-yellow-600 pt-1 pb-1 border border-yellow-600 rounded"
               {...register("category", { required: true })}
             >
               <option value="Buyer">Buyer</option>
@@ -154,7 +154,7 @@ const Register = () => {
           {signUpError && <p className="text-red-600">{signUpError}</p>}
         </form>
         <p>
-          Already have an account{" "}
+          Already have an account?{" "}
           <Link className="text-blue-600 underline" to="/login">
             Please Login.
           </Link>

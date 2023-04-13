@@ -45,12 +45,12 @@ const router = createBrowserRouter([
 
       {
         path: "/login",
-        element: <Loadings><Login></Login></Loadings>,
+        element: <Login></Login>,
       },
      
       {
         path: "/register",
-        element: <Loadings><Register></Register></Loadings>,
+        element: <Register></Register>,
       },
       
       {
