@@ -1,10 +1,10 @@
 Features and functionalities of my project:
 
-1.React router
-2.Firebase authentication
-3.Multiple panels(Admin,seller,buyer)
-4.Used MongoDB as database
-5.Used vercel for live data
+# React router
+# Firebase authentication
+# Multiple panels(Admin,seller,buyer)
+# Used MongoDB as database
+# Used vercel for live data
 
 
 
