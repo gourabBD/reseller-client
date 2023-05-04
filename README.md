@@ -29,7 +29,7 @@ Features and functionalities of my project:
 # CORS
 
 Project Live site link: https://resale-client-f79f2.web.app/
-Project server link: https://github.com/gourabBD/reseller-server
+Project server Github link: https://github.com/gourabBD/reseller-server
 
 Screen Shots: 
 
