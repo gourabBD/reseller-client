@@ -11,22 +11,22 @@ Features and functionalities of my project:
 
 1.Client:
 
-React JS
-Hooks & ContextAPI
-JSX
-Tailwind
+# React JS
+# Hooks & ContextAPI
+# JSX
+# Tailwind
 
 2.Server:
 
-NodeJs(Express)
-MongoDB
-JavaScript
+# NodeJs(Express)
+# MongoDB
+# JavaScript
 
 3.External Plugins:
 
-Environmental variables
-React Photoviewer
-CORS
+# Environmental variables
+# React Photoviewer
+# CORS
 
 Project Live site link: https://resale-client-f79f2.web.app/
 Project server link: https://github.com/gourabBD/reseller-server
