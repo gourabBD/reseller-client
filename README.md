@@ -49,7 +49,7 @@ Screen Shots:
 ![screencapture-resale-client-f79f2-web-app-dashboard-mysellingproducts-2023-05-20-13_42_06](https://github.com/gourabBD/reseller-client/assets/67328861/76eacc42-51b3-4528-a07b-2ddf0d9fcfa0)
 
 
-##Buyer panel: 
+## Buyer panel: 
 ![screencapture-resale-client-f79f2-web-app-products-All-2023-05-20-13_43_25](https://github.com/gourabBD/reseller-client/assets/67328861/4f8e1163-24ad-4e85-bc1f-50d222d3cfe0)
 
 ![screencapture-resale-client-f79f2-web-app-dashboard-wishlist-2023-05-20-13_44_26](https://github.com/gourabBD/reseller-client/assets/67328861/43ac3f00-f6ea-4101-bcbd-30be8f76c938)
