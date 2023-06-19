@@ -26,7 +26,7 @@ const menuItems = <React.Fragment>
 </React.Fragment>
 
     return (
-        <div className="navbar bg-base-100 mb-5  flex justify-between ">
+        <div className="navbar bg-base-100 mb-5 border-b-2 border-yellow-700  flex justify-between ">
   <div className="navbar-start ">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

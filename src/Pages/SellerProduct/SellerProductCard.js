@@ -22,7 +22,6 @@ const SellerProductCard = ({ product }) => {
   } = product;
 
   const handleDelete = (_id) => {
-   
     fetch(`https://resale-site-server.vercel.app/products/${_id}`, {
       method: "DELETE",
     })
@@ -30,23 +29,14 @@ const SellerProductCard = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          
           toast.success(` ${prodName} product has been deleted successfully!`);
         }
-       
-      })
-
-   
+      });
   };
-  
-  
 
   const handleAdvertise = () => {
-   
-   
-
     const addProd = {
-      pId:_id,
+      pId: _id,
       img,
       description,
       category,
@@ -72,7 +62,6 @@ const SellerProductCard = ({ product }) => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Advertising Confirmed!");
-          
         } else {
           toast.error(data.message);
         }
@@ -80,30 +69,30 @@ const SellerProductCard = ({ product }) => {
   };
 
   return (
-    
-      <div data-aos="flip-up" className="card lg:w-96 md:w-80 sm:w-auto bg-black border border-yellow-700 rounded-none shadow-xl p-5 my-5">
-        <figure>
-          <img className="h-40" src={product?.img} alt="Shoes" />
-        </figure>
-        <div className="card-body text-start h-80 overflow-y-auto my-2">
-          <h2 className="card-title">{prodName} </h2>
-          <p>{description}</p>
-          <span className="flex ">Seller Name: {name} </span>
-          <p>Location of seller: {loc}</p>
-          <p>Phone: {phone}</p>
-          <p>Resale Price: {resalePrice} Tk.</p>
-          <p>Original Price: {orgPrice} Tk.</p>
-          <p>Used for: {yearsUse} Years</p>
-          <button onClick={handleAdvertise} className="btn btn-primary">
-            Advertise
-          </button>
-          <button onClick={()=>handleDelete(_id)} className="btn btn-error">
-            Delete
-          </button>
-         
-        </div>
+    <div
+      data-aos="flip-up"
+      className="card lg:w-96 md:w-80 sm:w-auto  border border-yellow-700 rounded-none shadow-xl p-5 my-5"
+    >
+      <figure>
+        <img className="h-40" src={product?.img} alt="Shoes" />
+      </figure>
+      <div className="card-body text-start h-80 overflow-y-auto my-2">
+        <h2 className="card-title">{prodName} </h2>
+        <p>{description}</p>
+        <span className="flex ">Seller Name: {name} </span>
+        <p>Location of seller: {loc}</p>
+        <p>Phone: {phone}</p>
+        <p>Resale Price: {resalePrice} Tk.</p>
+        <p>Original Price: {orgPrice} Tk.</p>
+        <p>Used for: {yearsUse} Years</p>
+        <button onClick={handleAdvertise} className="btn btn-primary">
+          Advertise
+        </button>
+        <button onClick={() => handleDelete(_id)} className="btn btn-error">
+          Delete
+        </button>
       </div>
-    
+    </div>
   );
 };
 

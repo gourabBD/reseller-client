@@ -7,7 +7,7 @@ const Sliders = () => {
     <div
       className="hero  min-h-screen "
       style={{
-        backgroundImage: `url("https://i.ibb.co/7kc7rnw/mobiles.webp")`,
+        backgroundImage: `url("https://i.ibb.co/s9WR3qm/hero.png")`,
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>

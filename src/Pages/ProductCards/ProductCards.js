@@ -91,7 +91,7 @@ const ProductCards = ({ product, products }) => {
     <div
       style={{ height: "550px" }}
       data-aos="flip-up"
-      className="card bg-black border border-yellow-700  lg:w-auto md:w-80 sm:w-auto rounded-none shadow-xl  my-5 "
+      className="card  border border-yellow-700  lg:w-auto md:w-80 sm:w-auto rounded-none shadow-xl  my-5 "
     >
       <PhotoProvider>
         <PhotoView src={img}>
