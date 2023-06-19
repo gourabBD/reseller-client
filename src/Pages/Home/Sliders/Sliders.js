@@ -36,6 +36,7 @@ const Sliders = () => {
         <Link to={"/products/All"}>
             <button className="btn btn-success ">Get Started</button>
           </Link>
+          
       </div>
     </div>
   );
